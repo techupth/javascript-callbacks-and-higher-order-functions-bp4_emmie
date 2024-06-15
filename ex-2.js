@@ -1,29 +1,29 @@
 //Exercise #2: At Least Five Function
-// คะแนนของนักเรียนในแต่ละห้อง
-const studentScoresRoom1 = [12, 40, 67, 80, 100, 15, 40, 78, 75, 80];
+function atLeastFive(array, operation) {
+  // Start coding here
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (operation(array[i])) {
+      count++;
+    }
+  }
+  return count >= 5;
+}
+
+function checkGradeOver70(score) {
+  return score > 70;
+}
+
+const studentScoresRoom1 = [90, 40, 67, 80, 100, 15, 86, 12, 99, 67];
 const studentScoresRoom2 = [78, 98, 23, 15, 40, 12, 40, 67, 80, 100];
 const studentScoresRoom3 = [67, 80, 100, 15, 12, 40, 67, 80, 100, 67];
 
-// ฟังก์ชันตรวจสอบเกณฑ์
-function checkScores(scores, roomNumber, callback) {
-    const count = scores.filter(score => score > 70).length;
-    if (count >= 5) {
-        callback(roomNumber, true);
-    } else {
-        callback(roomNumber, false);
-    }
-}
+// Using `atLeastFive` function here
 
-// ฟังก์ชันแสดงผลลัพธ์
-function displayResult(roomNumber, isPassed) {
-    if (isPassed) {
-        console.log(`นักเรียนห้องที่ ${roomNumber} ผ่านเกณฑ์ ✅`);
-    } else {
-        console.log(`นักเรียนห้องที่ ${roomNumber} ไม่ผ่านเกณฑ์ ❌`);
-}
-}
+let scoreRoom1Result = atLeastFive(studentScoresRoom1, checkGradeOver70);
+let scoreRoom2Result = atLeastFive(studentScoresRoom2, checkGradeOver70);
+let scoreRoom3Result = atLeastFive(studentScoresRoom3, checkGradeOver70);
 
-// ตรวจสอบคะแนนของนักเรียนในแต่ละห้อง
-checkScores(studentScoresRoom1, 1, displayResult);
-checkScores(studentScoresRoom2, 2, displayResult);
-checkScores(studentScoresRoom3, 3, displayResult);
+console.log(scoreRoom1Result);
+console.log(scoreRoom2Result);
+console.log(scoreRoom3Result);
