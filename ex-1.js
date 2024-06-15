@@ -1,21 +1,21 @@
 // Exercise #1: For Each Function
 
-const employeeSalaries = [20005, 40000, 32000, 14500, 34400];
-const addOn = 5000;
+function forEach(array, operation) {
+  // Start coding here
+  for (let i = 0; i < array.length; i++) {
+    operation(array[i]);
+  }
+}
 
-function addSalary (employeeSalaries, addOn){
-    const newAdd = [];
-    for (let i=0; i<employeeSalaries.length; i++){
-        newAdd.push(employeeSalaries[i] + addOn);
-    };
-    return newAdd;
-};
-
-let newSalary = addSalary(employeeSalaries, addOn);
-console.log(newSalary);
-const employeeSalaries = [20005, 40000, 32000, 14500, 344000];
 const newEmployeeSalaries = [];
 
-// Using `forEach` function here
+function addSalary5000(previousSalary) {
+  newEmployeeSalaries.push(previousSalary + 5000);
+};
 
-console.log(newEmployeeSalaries); // [25005, 45000, 37000, 19500, 349000]
+const employeeSalaries = [20005, 40000, 32000, 14500, 344000];
+
+// Using `forEach` function here
+forEach(employeeSalaries, addSalary5000);
+
+console.log(newEmployeeSalaries);
